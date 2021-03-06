@@ -2,6 +2,11 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from './routers'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
+
+import Swiper2, { Navigation, Pagination, EffectFade, Autoplay } from 'swiper'
+Swiper2.use([Navigation, Pagination, EffectFade, Autoplay])
 
 import App from './App.vue'
 
@@ -25,6 +30,7 @@ axios.interceptors.response.use(function (req){
 })
 
 Vue.use(VueAxios,axios)
+Vue.use(VueAwesomeSwiper)
 
 new Vue({
   render: h => h(App),
