@@ -19,8 +19,8 @@ if(mock){
 axios.defaults.baseURL = '/api'
 axios.defaults.timeout = 8000
 axios.interceptors.response.use(function (req){
-  let result = req.data
-  if(result.status == 0){
+  let result = req
+  if(result.status == 200){
     return result
   } else if (result.status == 10){
     window.location.href = "/#/login"

@@ -78,213 +78,25 @@ export default {
   name: "NavHeader",
   data (){
       return {
-          headerLists:[
-            {
-                "id":"001",
-                "title":"小米手机",
-                "children":[
-                    {
-                        "id":"0001",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/963679eaf3937351e154600ab3448460.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米11",
-                        "proPrice":"3999元起"
-                    },
-                    {
-                        "id":"0002",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b11742a0be47f9d97bb6a13ea580018d.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米10至尊版",
-                        "proPrice":"5299元起"
-                    },
-                    {
-                        "id":"0003",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米10",
-                        "proPrice":"3999元起"
-                    },
-                    {
-                        "id":"0004",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3bf20f1df3f2e22c5b29ff07634f3c59.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米10青春版 5G",
-                        "proPrice":"2099元起"
-                    },
-                    {
-                        "id":"0005",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d19da60f9f62eb2aa5dcdbd7df19f0f.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米MIX Alpha",
-                        "proPrice":"19999元起"
-                    },
-                    {
-                        "id":"0006",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d19da60f9f62eb2aa5dcdbd7df19f0f.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米MIX Alpha",
-                        "proPrice":"19999元起"
-                    }
-                ]
-            },
-            {
-                "id":"002",
-                "title":"RedMi红米",
-                "children":[
-                    {
-                        "id":"0001",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d07671f25a2b3a6c3d4fac189f28fbe9.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"K40系列",
-                        "proPrice":"2799元起"
-                    },
-                    {
-                        "id":"0002",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecebd50c7840bb03d7b5e3bfe4d439c2.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi K40",
-                        "proPrice":"1999元起"
-                    },
-                    {
-                        "id":"0003",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/584add2c9cfdb9eefe7b642bf191773a.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi Note9系列",
-                        "proPrice":"999元起"
-                    },
-                    {
-                        "id":"0004",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/81808cd191332114f44d8d0cb0d0813a.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi K30S至尊版",
-                        "proPrice":"2599元起"
-                    },
-                    {
-                        "id":"0005",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/31d0dc82068abcaa46464b4baa9fbbdf.jpg?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi K30至尊版",
-                        "proPrice":"1999元起"
-                    },
-                    {
-                        "id":"0006",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7bd1b02e0329bd5c41d193f01349f991.jpg?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi 9A",
-                        "proPrice":"499元起"
-                    },
-                ]
-            },
-            {
-                "id":"003",
-                "title":"电视",
-                "children":[
-                    {
-                        "id":"0001",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8c87fdc4bcfd081ac240f7af1417ce60.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi MAX 86″ 超大屏电视",
-                        "proPrice":"7999元"
-                    },
-                    {
-                        "id":"0002",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/174a2f9256a44b98f9e08bbe30528329.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米电视大师 82英寸至尊纪念版",
-                        "proPrice":"49999元"
-                    },
-                    {
-                        "id":"0003",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e513ac03d0ebb594bf42f7d6b1b44944.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米电视大师 82英寸",
-                        "proPrice":"9999元"
-                    },
-                    {
-                        "id":"0004",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/932b583c6eccd8aabfa0771f8a854940.jpg?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米透明电视",
-                        "proPrice":"49999元"
-                    }
-                ]
-            },
-            {
-                "id":"004",
-                "title":"笔记本",
-                "children":[
-                    {
-                        "id":"0001",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7872a4195d666f08bef0877562dd7fe7.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"RedmiBook Pro 14",
-                        "proPrice":"4699元起"
-                    },
-                    {
-                        "id":"0002",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/72efefb3f76c2ec1ef749f860ff232b9.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"RedmiBook Pro 15",
-                        "proPrice":"4999元起"
-                    }
-                ]
-            },
-            {
-                "id":"005",
-                "title":"家电",
-                "children":[
-                    {
-                        "id":"0001",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b7a4e3ff7919ca2407ad970b78abd09a.jpg?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"米家风冷对开门冰箱 483L",
-                        "proPrice":"2399元"
-                    },
-                    {
-                        "id":"0002",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/65df9e92c06dcd148de5f0eb13e16ea2.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"米家扫拖机器人1T",
-                        "proPrice":"1999元"
-                    }
-                ]
-            },
-            {
-                "id":"006",
-                "title":"路由器",
-                "children":[
-                    {
-                        "id":"0001",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a759fa795d749f0538cfd2a15890027.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米路由器AX6000",
-                        "proPrice":"599元"
-                    },
-                    {
-                            "id":"0002",
-                            "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/54de949334c3d794a6ca55b76e4bb379.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi路由器 AX6",
-                        "proPrice":"349元"
-                    }
-                ]
-            },
-            {
-                "id":"007",
-                "title":"智能硬件",
-                "children":[
-                    {
-                        "id":"0001",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2b87ae4a36beef69bb2018eb1f8bce9b.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"小米全自动智能门锁",
-                        "proPrice":"1699元"
-                    },
-                    {
-                        "id":"0002",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9c6a5f44fd12afa182367ed8d1716421.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi小爱触屏音箱Pro 8",
-                        "proPrice":"499元"
-                    },
-                    {
-                        "id":"0003",
-                        "proImg":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f6e585a4bf5c0f744ca60f19ecd6fadf.jpg?thumb=1&w=240&h=165",
-                        "proname":"小爱触屏音箱",
-                        "proPrice":"199元"
-                    },
-                    {
-                        "id":"0004",
-                        "proImg":"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/17c0c91317ec0def3ecc072fa9480192.png?thumb=1&w=240&h=165&f=webp&q=90",
-                        "proname":"Redmi小爱音箱 Play",
-                        "proPrice":"89元"
-                    }
-                ]
-            },
-          ]
+          headerLists:[]
       }
+  },
+  mounted (){
+    this.getHeaderData()
+  },
+  methods:{
+    getHeaderData (){
+      this.axios.get('/api/data')
+          .then(res =>{
+            let result = res.data.data
+            this.headerLists = result.headerLists.data
+          })
+    }
   }
 };
 </script>
 
 <style lang="scss">
-// @import url('../assets/scss/config.scss');
 .header {
   .nav-topbar {
     height: 39px;

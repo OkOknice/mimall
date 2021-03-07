@@ -14,7 +14,6 @@ export default {
   },
   mounted (){
     this.axios.get('/user/login').then(result =>{
-      console.log(result)
       this.list = result
     })
   }
