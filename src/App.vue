@@ -13,9 +13,18 @@ export default {
     }
   },
   mounted (){
-    this.axios.get('/user/login').then(result =>{
-      this.list = result
-    })
+    console.log(this.$cookie.get('userId'))
+    if(this.$cookie.get('userId')){
+      this.getUserInfo()
+    }
+  },
+  methods:{
+    getUserInfo (){
+      this.axios.get('/user').then(res =>{
+        let {data} = res.data
+        this.$store.dispatch('saveUserName',data.username)
+      })
+    }
   }
 }
 </script>

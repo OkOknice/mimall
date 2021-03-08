@@ -8217,6 +8217,11 @@ timsort@^0.3.0:
   resolved "https://registry.npm.taobao.org/timsort/download/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
+tiny-cookie@^1.0:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/tiny-cookie/download/tiny-cookie-1.0.1.tgz#753786079c642a3c3d0b2accad600f8de119ac2a"
+  integrity sha1-dTeGB5xkKjw9CyrMrWAPjeEZrCo=
+
 tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.npm.taobao.org/tmp/download/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
@@ -8611,6 +8616,13 @@ vue-axios@^3.2.4:
   version "3.2.4"
   resolved "https://registry.npm.taobao.org/vue-axios/download/vue-axios-3.2.4.tgz?cache=0&sync_timestamp=1612148512007&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-axios%2Fdownload%2Fvue-axios-3.2.4.tgz#2334158db8ac2a0f603aa431c2626fbf6d766724"
   integrity sha1-IzQVjbisKg9gOqQxwmJvv212ZyQ=
+
+vue-cookie@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.npm.taobao.org/vue-cookie/download/vue-cookie-1.1.4.tgz#b8b46d112bda9f93a2f47017c2ed5282d2064fda"
+  integrity sha1-uLRtESvan5Oi9HAXwu1SgtIGT9o=
+  dependencies:
+    tiny-cookie "^1.0"
 
 vue-eslint-parser@^7.0.0:
   version "7.6.0"

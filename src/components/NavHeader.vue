@@ -27,7 +27,8 @@
           <a href="javascript:;">Select Location</a>
         </div>
         <div class="topbar-user">
-          <a href="javascript:;">登录</a>
+          <a href="javascript:;" @click="goToLogin" v-if="username">{{username}}</a>
+          <a href="javascript:;" @click="goToLogin" v-if="!username">登录</a>
           <a href="javascript:;">消息通知</a>
           <a href="javascript:;" class="myCart">
             <span class="icon-cart"></span>
@@ -39,7 +40,7 @@
     <div class="nav-header">
       <div class="contanier">
         <div class="header-logo">
-          <a href="/#/index"></a>
+          <a href="/index"></a>
         </div>
         <div class="header-menu" >
           <div class="item-menu" v-for="(item,index) in headerLists" :key="index">
@@ -47,7 +48,7 @@
             <div class="children">
               <ul>
                 <li class="product" v-for="list in item.children" :key="list.id">
-                  <a href="/#/product/31" target="_blank">
+                  <a href="/product" target="_blank">
                     <div class="pro-img">
                       <img
                         :src="list.proImg"
@@ -78,19 +79,27 @@ export default {
   name: "NavHeader",
   data (){
       return {
-          headerLists:[]
+          headerLists:[],
       }
   },
   mounted (){
     this.getHeaderData()
   },
+  computed:{
+    username (){
+     return this.$store.state.username
+    }
+  },
   methods:{
     getHeaderData (){
-      this.axios.get('/api/data')
+      this.axios.get('/data')
           .then(res =>{
             let result = res.data.data
             this.headerLists = result.headerLists.data
           })
+    },
+    goToLogin (){
+      this.$router.push('/login')
     }
   }
 };

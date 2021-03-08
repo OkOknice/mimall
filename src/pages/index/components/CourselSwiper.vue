@@ -59,13 +59,14 @@ export default {
   },
   methods:{
     getData (){
-      this.axios.get('/api/data')
+      this.axios.get('/data')
           .then(res =>{
             let result = res.data.data
             this.swiperLists = result.swiperLists.data
             this.menuLists = result.menuLists.data
           })
     }
+    
   }
 };
 </script>

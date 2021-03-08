@@ -1,6 +1,7 @@
 const express = require('express')
 const app  = express()
 const data = require('./src/mock/data.json')
+const user = require('./src/mock/login.json')
 var apiRoutes = express.Router()
 app.use('/api',apiRoutes)
 module.exports = {
@@ -8,7 +9,7 @@ module.exports = {
         open:true,
         proxy: {
             '/api': {
-                target: "http://localhost:8080",
+                target: "http://mall-pre.springboot.cn",
                 changeOrigin: true,
                 pathRewrite: {
                     '/api': ''
@@ -20,6 +21,12 @@ module.exports = {
                 res.json({
                     errno:0,
                     data
+                })
+            }),
+            app.get('/api/user',(req,res) =>{
+                res.json({
+                    errno:0,
+                    data:user.data
                 })
             })
         }
