@@ -8,8 +8,8 @@
               <div class="children">
                   <ul v-for="(items,index) in menuList.children" :key="index">
                     <li v-for="item in items" :key="item.id">
-                      <a href="" id="">
-                        <img :src="item.menuImg" alt="">
+                      <a href="/product" id="" target="_blank">
+                        <img v-lazy="item.menuImg" alt="">
                         {{item.menuName}}
                       </a>
                     </li>

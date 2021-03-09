@@ -50,15 +50,22 @@ export default {
   methods:{
      login (){
          let { username,password } = this
-          this.axios.get('/user').then(res =>{
-                let {data} = res.data
-                if(username === data.username && password === data.password){
-                    this.$cookie.set('userId',data.id,{expiress:'1M'})
-                    this.$store.dispatch('saveUserName',data.username)
-                    this.$router.push('/index')
-                    return
-                }
-                alert('用户名或密码不正确！！！')
+          this.axios.get('/login',{
+            params:{
+              username,
+              password
+            }
+          }).then(res =>{
+                // let {data} = res.data.data
+                // if(username === data.username && password === data.password){
+                //     this.$cookie.set('userId',data.id,{expiress:'1M'})
+                //     this.$store.dispatch('saveUserName',data.username)
+                //     this.$router.push('/index')
+                //     return
+                // }
+                // alert('用户名或密码不正确！！！')
+                console.log(res)
+                this.$router.push('/index')
         })  
       }
   }

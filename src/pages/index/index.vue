@@ -8,20 +8,20 @@
         <a href="" id=""><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/793913688bfaee26b755a0b0cc8575fd.jpg?w=632&h=340" alt=""></a>
         <a href="" id=""><img src="/imgs/ads/ads-4.jpg" alt=""></a>
       </div>
-      <Products></Products>
+      <IndexProducts></IndexProducts>
     </div>
     <ServerBar></ServerBar>
   </div>
 </template>
 <script>
 import ServerBar from "../../components/ServerBar";
-import Products from './components/Products'
+import IndexProducts from './components/IndexProducts'
 import CourselSwiper from './components/CourselSwiper'
 export default {
   name: "index",
   components: {
     CourselSwiper,
-    Products,
+    IndexProducts,
     ServerBar,
   },
 };

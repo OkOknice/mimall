@@ -4,6 +4,7 @@ import VueAxios from 'vue-axios'
 import store from './store'
 import router from './routers'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 
 import 'swiper/swiper-bundle.css'
@@ -35,6 +36,9 @@ axios.interceptors.response.use(function (req){
 Vue.use(VueAxios,axios)
 Vue.use(VueCookie)
 Vue.use(VueAwesomeSwiper)
+Vue.use(VueLazyLoad,{
+  loading:'/imgs/loading-svg/loading-bubbles.svg'
+})
 
 new Vue({
   render: h => h(App),

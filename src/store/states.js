@@ -1,3 +1,4 @@
 export default {
-    username:''
+    username:'',
+    cartSum:''
 }

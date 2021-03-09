@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import Login from '../pages/login/login.vue'
 import Home from '../pages/home.vue'
 import Index from '../pages/index/index.vue'
+import Product from '../pages/products/product.vue'
+import Detail from '../pages/detail/detail.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -19,6 +21,16 @@ export default new VueRouter({
                     path:'index',
                     name:'index',
                     component:Index
+                },
+                {
+                    path:'product',
+                    name:'product',
+                    component:Product
+                },
+                {
+                    path:'detail',
+                    name:'detail',
+                    component:Detail
                 }
             ]
         },

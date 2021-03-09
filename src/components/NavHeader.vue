@@ -30,9 +30,13 @@
           <a href="javascript:;" @click="goToLogin" v-if="username">{{username}}</a>
           <a href="javascript:;" @click="goToLogin" v-if="!username">登录</a>
           <a href="javascript:;">消息通知</a>
-          <a href="javascript:;" class="myCart">
+          <a href="javascript:;" class="myCart" v-if="!username">
             <span class="icon-cart"></span>
             购物车
+          </a>
+          <a href="javascript:;" class="myCart" v-if="username">
+            <span class="icon-cart"></span>
+            购物车（{{cartSum}}）
           </a>
         </div>
       </div>
@@ -50,10 +54,7 @@
                 <li class="product" v-for="list in item.children" :key="list.id">
                   <a href="/product" target="_blank">
                     <div class="pro-img">
-                      <img
-                        :src="list.proImg"
-                        alt=""
-                      />
+                      <img v-lazy="list.proImg" alt=""/>
                     </div>
                     <div class="pro-name">{{list.proname}}</div>
                     <div class="pro-price">{{list.proPrice}}</div>
@@ -88,6 +89,9 @@ export default {
   computed:{
     username (){
      return this.$store.state.username
+    },
+    cartSum (){
+      return this.$store.state.cartSum
     }
   },
   methods:{

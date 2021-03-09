@@ -13,16 +13,22 @@ export default {
     }
   },
   mounted (){
-    console.log(this.$cookie.get('userId'))
     if(this.$cookie.get('userId')){
       this.getUserInfo()
+      this.getCartSumInfo()
     }
   },
   methods:{
     getUserInfo (){
-      this.axios.get('/user').then(res =>{
+      this.axios.get('/login').then(res =>{
         let {data} = res.data
         this.$store.dispatch('saveUserName',data.username)
+      })
+    },
+    getCartSumInfo (){
+      this.axios.get('/cart/sum').then(res =>{
+        let {data} = res.data
+        this.$store.dispatch('saveCartSum',data.sum)
       })
     }
   }
