@@ -30,11 +30,11 @@
           <a href="javascript:;" @click="goToLogin" v-if="username">{{username}}</a>
           <a href="javascript:;" @click="goToLogin" v-if="!username">登录</a>
           <a href="javascript:;">消息通知</a>
-          <a href="javascript:;" class="myCart" v-if="!username">
+          <a href="javascript:;" class="myCart" v-if="!username" @click="gotoCart">
             <span class="icon-cart"></span>
             购物车
           </a>
-          <a href="javascript:;" class="myCart" v-if="username">
+          <a href="javascript:;" class="myCart" v-if="username" @click="gotoCart">
             <span class="icon-cart"></span>
             购物车（{{cartSum}}）
           </a>
@@ -103,6 +103,13 @@ export default {
           })
     },
     goToLogin (){
+      this.$router.push('/login')
+    },
+    gotoCart (){
+      if(this.$store.state.username){
+        this.$router.push('/cart')
+        return 
+      }
       this.$router.push('/login')
     }
   }

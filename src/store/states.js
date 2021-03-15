@@ -1,4 +1,4 @@
 export default {
-    username:'',
+    username:localStorage.getItem('username') || '',
     cartSum:''
 }

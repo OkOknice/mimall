@@ -56,15 +56,10 @@ export default {
               password
             }
           }).then(res =>{
-                // let {data} = res.data.data
-                // if(username === data.username && password === data.password){
-                //     this.$cookie.set('userId',data.id,{expiress:'1M'})
-                //     this.$store.dispatch('saveUserName',data.username)
-                //     this.$router.push('/index')
-                //     return
-                // }
-                // alert('用户名或密码不正确！！！')
-                console.log(res)
+                let {login} = res.data
+                localStorage.setItem('username',login.data.username)
+                this.$cookie.set('userId',login.data.id,{expiress:'Session'})
+                this.$store.dispatch('saveUserName',login.data.username)
                 this.$router.push('/index')
         })  
       }

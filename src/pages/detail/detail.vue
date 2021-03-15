@@ -44,7 +44,7 @@
             <div class="phone-total">总计：3999元</div>
           </div>
           <div class="btn-group">
-            <a href="javascript:;" class="btn btn-huge fl">加入购物车</a>
+            <a href="javascript:;" class="btn btn-huge fl" @click="addCart">加入购物车</a>
           </div>
         </div>
       </div>
@@ -81,6 +81,13 @@ export default {
                 }
             },
         }
+    },
+    methods:{
+      addCart(){
+        if(!this.$store.state.username){
+          this.$router.push('/login')
+        }
+      }
     }
 }
 </script>
