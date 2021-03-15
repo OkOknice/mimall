@@ -4,7 +4,7 @@
       <div class="container">
         <div class="cart-box">
           <ul class="cart-item-head">
-            <li class="col-1"><span class="checkbox" :class="{'checked':productSelected}" @click="productSelected=!productSelected?true:false "></span>全选</li>
+            <li class="col-1"><span class="checkbox" :class="{'checked':productSelectedAll}"></span>全选</li>
             <li class="col-3">商品名称</li>
             <li class="col-1">单价</li>
             <li class="col-2">数量</li>
@@ -18,7 +18,7 @@
               :key="index"
             >
               <div class="item-check">
-                <span class="checkbox" :class="{'checked':productSelected}" @click="productSelected=!productSelected?true:false "></span>
+                <span class="checkbox" :class="{'checked':item.productSelected}" ></span>
               </div>
               <div class="item-name">
                 <img :src="item.productMainImage" alt="" />
@@ -44,7 +44,7 @@
           </div>
           <div class="total fr">
             合计：<span>{{totalPrice}}</span>元
-            <a href="javascript:;" class="btn">去结算</a>
+            <a href="javascript:;" class="btn" @click="goToOrderConfirm">去结算</a>
           </div>
         </div>
       </div>
@@ -59,7 +59,8 @@ export default {
       cartLists: [],
       number:1,
       price:0,
-      productSelected:false,
+      // productSelected:false,
+      productSelectedAll:false,
       totalPrice:999
     };
   },
@@ -90,6 +91,9 @@ export default {
       this.cartLists = cart.cartProductVoList || [];
       this.price = cart.productPrice
     },
+    goToOrderConfirm (){
+      this.$router.push('/order/orderConfirm')
+    }
   },
 };
 </script>

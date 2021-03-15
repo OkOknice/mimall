@@ -5,7 +5,7 @@
         <a href="/index"></a>
       </div>
       <div class="title">
-        <h2>我的购物车 <span>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span></h2>
+        <h2>{{title}} <slot name="tip"></slot></h2>
       </div>
       <div class="username">
         <a href="javascript:;">OKOK</a>
