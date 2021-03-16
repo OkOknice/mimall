@@ -4,7 +4,7 @@
       <div class="container">
         <div class="cart-box">
           <ul class="cart-item-head">
-            <li class="col-1"><span class="checkbox" :class="{'checked':productSelectedAll}"></span>全选</li>
+            <li class="col-1"><input type="checkbox" class="checkbox" v-model="isAllChecked" @change="changAll()"/>全选</li>
             <li class="col-3">商品名称</li>
             <li class="col-1">单价</li>
             <li class="col-2">数量</li>
@@ -18,7 +18,7 @@
               :key="index"
             >
               <div class="item-check">
-                <span class="checkbox" :class="{'checked':item.productSelected}" ></span>
+                <input type="checkbox" class="checkbox" :class="{'checked':item.productSelected}" v-model="checkGroup" @change="sumFun" :value="item"/>
               </div>
               <div class="item-name">
                 <img :src="item.productMainImage" alt="" />
@@ -27,12 +27,12 @@
               <div class="item-price">{{ item.productPrice }}元</div>
               <div class="item-num">
                 <div class="num-box">
-                  <a href="javascript:;" @click="removeSum">-</a>
-                  <span>{{ number }}</span>
-                  <a href="javascript:;" @click="addSum">+</a>
+                  <a href="javascript:;" @click="removeSum(item)">-</a>
+                  <span>{{ item.quantity }}</span>
+                  <a href="javascript:;" @click="addSum(item)">+</a>
                 </div>
               </div>
-              <div class="item-total">{{ item.productTotalPrice * number }}元</div>
+              <div class="item-total">{{ item.productTotalPrice * item.quantity }}元</div>
               <div class="item-del"></div>
             </li>
           </ul>
@@ -40,7 +40,7 @@
         <div class="order-wrap clearfix">
           <div class="cart-tip fl">
             <a href="/index">继续购物</a>
-            共<span>1</span>件商品，已选择<span>{{number}}</span>件
+            共<span>{{count}}</span>件商品，已选择<span>{{number}}</span>件
           </div>
           <div class="total fr">
             合计：<span>{{totalPrice}}</span>元
@@ -57,33 +57,38 @@ export default {
   data() {
     return {
       cartLists: [],
-      number:1,
+      number:0,
       price:0,
-      // productSelected:false,
-      productSelectedAll:false,
-      totalPrice:999
+      totalPrice:0,
+      count:'',
+      checkGroup:[],
+      isAllChecked:false
     };
   },
   mounted() {
     this.getCartLists();
+    // this.sumFun()
   },
   methods: {
-    addSum (){
-      this.number ++
+    addSum (item){
+        this.number ++
+         item.quantity = item.quantity === this.number ? item.quantity : this.number
     },
-    removeSum (){
-      if(this.number === 1) {
+    removeSum (item){
+      if(item.quantity === 1) {
         alert('至少购买一件商品')
         return
       }
       this.number --
-
-      
+      item.quantity = item.quantity === this.number ? item.quantity : this.number
     },
     getCartLists() {
       this.axios.get("/cart/cartList",).then((res) => {
         let { cart } = res.data;
         this.cartLists = cart.cartProductVoList;
+        this.id = cart.cartProductVoList.map(item => item.id)
+        this.count = cart.cartProductVoList.length
+        // this.totalPrice = cart.cartTotalPrice
         this.renderData(cart)
       });
     },
@@ -93,8 +98,33 @@ export default {
     },
     goToOrderConfirm (){
       this.$router.push('/order/orderConfirm')
-    }
-  },
+    },
+    sumFun() {
+        if (this.checkGroup.length !== this.cartLists.length) {
+            this.isAllChecked = false
+            if(this.checkGroup){
+              console.log(this.checkGroup)
+              this.checkGroup.forEach(item => this.number = item.quantity)
+            }
+        } else {
+            this.isAllChecked = true
+        }
+        let sum = 0
+        if (!this.checkGroup) return 0
+        this.checkGroup.forEach(item => {sum += item.quantity * item.productPrice;return this.totalPrice = sum})
+    },
+    changAll() {
+        if (this.isAllChecked) {
+            this.checkGroup = this.cartLists
+            this.number = this.cartLists.length
+        } else {
+            this.checkGroup = []
+            this.totalPrice = 0
+            this.number = 0
+        }
+        this.sumFun()
+    },
+  }
 };
 </script>
 
