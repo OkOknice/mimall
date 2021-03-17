@@ -66,7 +66,11 @@ export default {
     };
   },
   mounted() {
-    this.getCartLists();
+    if(this.$cookie.get('userId') && this.$store.state.username){
+      this.getCartLists();
+    } else {
+      this.$router.push('/login')
+    }
     // this.sumFun()
   },
   methods: {

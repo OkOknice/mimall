@@ -108,7 +108,7 @@
             </div>
             <div class="item">
               <span class="item-name">商品总价：</span>
-              <span class="item-val">999元</span>
+              <span class="item-val">{{totalPrice}}元</span>
             </div>
             <div class="item">
               <span class="item-name">优惠活动：</span>
@@ -125,52 +125,11 @@
           </div>
           <div class="btn-group">
             <a href="/cart" class="btn btn-default btn-large">返回购物车</a>
-            <a href="javascript:;" class="btn btn-large">去结算</a>
+            <a href="javascript:;" class="btn btn-large" @click="goToPay">去结算</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- <modal title="新增确认" btnType="1">
-      <template v-slot:body>
-        <div class="edit-wrap">
-          <div class="item">
-            <input type="text" class="input" placeholder="姓名" />
-            <input type="text" class="input" placeholder="手机号" />
-          </div>
-          <div class="item">
-            <select name="province">
-              <option value="北京">北京</option>
-              <option value="天津">天津</option>
-              <option value="河北">河北</option>
-            </select>
-            <select name="city">
-              <option value="北京">北京</option>
-              <option value="天津">天津</option>
-              <option value="河北">石家庄</option>
-            </select>
-            <select name="district">
-              <option value="北京">昌平区</option>
-              <option value="天津">海淀区</option>
-              <option value="河北">东城区</option>
-              <option value="天津">西城区</option>
-              <option value="河北">顺义区</option>
-              <option value="天津">房山区</option>
-            </select>
-          </div>
-          <div class="item">
-            <textarea name="street"></textarea>
-          </div>
-          <div class="item">
-            <input type="text" class="input" placeholder="邮编" />
-          </div>
-        </div>
-      </template>
-    </modal>
-    <modal title="删除确认" btnType="1">
-      <template v-slot:body>
-        <p>您确认要删除此地址吗？</p>
-      </template>
-    </modal> -->
   </div>
 </template>
 <script>
@@ -189,8 +148,13 @@ export default {
       OrderHeader
   },
   mounted (){
+    if(this.$cookie.get('userId') && this.$store.state.username){
       this.getAddressInfo()
       this.getCartLists()
+    } else {
+      this.$router.push('/login')
+    }
+
   },
   methods:{
       getAddressInfo (){
@@ -207,6 +171,9 @@ export default {
             this.totalPrice = cart.cartTotalPrice
         });
       },
+      goToPay (){
+        this.$router.push('/order/orderPay')
+      }
   }
 };
 </script>

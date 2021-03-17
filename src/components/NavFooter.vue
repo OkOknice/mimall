@@ -5,12 +5,12 @@
             <p>小米商城</p>
         </div>
         <div class="footer-link">
-            <a href="https://www.imooc.com/u/1343480" target="_blank">河畔一角主页</a><span>|</span>
-            <a href="https://coding.imooc.com/class/113.html" target="_blank">Vue全栈课程</a><span>|</span>
-            <a href="https://coding.imooc.com/class/236.html" target="_blank">React全家桶课程</a><span>|</span>
-            <a href="https://coding.imooc.com/class/343.html" target="_blank">微信支付专项课程（H5+小程序+Node+Mongo）</a>
+            <a href="/index" >小米公司儿童信息保护规则</a><span>|</span>
+            <a href="/index" >小米集团隐私政策</a><span>|</span>
+            <a href="/index" >小米商城隐私政策</a><span>|</span>
+            <a href="/index" > 问题反馈</a>
         </div>
-        <div class="copyright">Copyright ©2019 <span class="domain">mi.futurefe.com</span> All Rights Reserved.</div>
+        <div class="copyright">Copyright ©2021 <span class="domain">www.mi.com</span> All Rights Reserved.</div>
     </div>
 </template>
 <script>
@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
     .footer{
         height:234px;
-        background: #333333;
+        background: #f5f5f5;
         color:#999999;
         font-size:16px;
         text-align: center;

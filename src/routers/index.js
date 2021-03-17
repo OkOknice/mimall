@@ -9,6 +9,7 @@ import Detail from '../pages/detail/detail.vue'
 import Cart from '../pages/cart/cart.vue'
 import Order from '../pages/order/order.vue'
 import OrderConfirm from '../pages/order/components/orderConfirm.vue'
+import OrderPay from '../pages/order/components/orderPay.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -56,6 +57,11 @@ export default new VueRouter({
                     path:'orderConfirm',
                     name:'orderConfirm',
                     component:OrderConfirm
+                },
+                {
+                    path:'orderPay',
+                    name:"orderPay",
+                    component:OrderPay
                 }
             ]
         }
