@@ -27,8 +27,9 @@
           <a href="javascript:;">Select Location</a>
         </div>
         <div class="topbar-user">
-          <a href="javascript:;" @click="goToLogin" v-if="username">{{username}}</a>
+          <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" @click="goToLogin" v-if="!username">登录</a>
+          <a href="javascript:;" @click="goToClearLogin" v-if="username">退出登录</a>
           <a href="javascript:;">消息通知</a>
           <a href="javascript:;" class="myCart" v-if="!username" @click="gotoCart">
             <span class="icon-cart"></span>
@@ -111,6 +112,12 @@ export default {
         return 
       }
       this.$router.push('/login')
+    },
+    goToClearLogin (){
+      if(this.$store.state.username && this.$cookie.get('userId')){
+        localStorage.removeItem('username')
+        this.$router.push('/login')
+      }
     }
   }
 };

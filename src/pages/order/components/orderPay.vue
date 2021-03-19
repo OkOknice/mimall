@@ -11,7 +11,7 @@
           <div class="item-order">
             <div class="icon-succ"></div>
             <div class="order-info">
-              <h2>订单提交成功！去付款咯～</h2>
+              <h2>{{title}}</h2>
               <p>请在<span>30分</span>内完成支付, 超时后将取消订单</p>
               <p>收货信息：{{orderAddress}}</p>
             </div>
@@ -69,6 +69,7 @@ export default {
   },
   data (){
       return {
+        title:'订单提交成功！去付款咯～',
         orderNum:'',
         orderAddress:'',
         orderLists:[],
@@ -96,6 +97,7 @@ export default {
       },
       submitPay (){
           this.totalPrice = 0
+          this.title = '付款成功~~~'
           alert('支付完成')
       }
   }
